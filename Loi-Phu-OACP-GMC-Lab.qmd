@@ -113,6 +113,6 @@ Third, the Farm Store should settle its business identity questions before setup
 
 ## Appendix
 
-GitHub Repository: *\[insert GitHub repo URL here\]*
+GitHub Repository: <https://github.com/PhuLoi66/oacp-gmc-lab>
 
-GitHub Pages (Published Report): *\[insert GitHub Pages URL here\]*
+GitHub Pages (Published Report): <https://phuloi66.github.io/oacp-gmc-lab/>
