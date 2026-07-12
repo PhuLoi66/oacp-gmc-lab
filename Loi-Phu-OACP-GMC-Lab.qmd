@@ -1,0 +1,118 @@
+---
+title: "OACP-W06: Shopify to Google Merchant Center Connection Lab"
+author: "Phu Loi"
+date: today
+format: 
+  html: 
+    toc: true
+    toc-depth: 4
+    toc-expand: true
+    number-sections: true
+    code-link: true
+    embed-resources: true
+    theme: flatly
+    code-fold: true
+    code-overflow: wrap
+    code-tools: true
+editor: visual
+execute: 
+  freeze: auto
+---
+
+## Introduction
+
+My Shopify practice store is The 5th C Diamond, a direct-to-consumer fine jewelry store specializing in lab-grown diamonds. The name plays on the traditional four Cs of diamond grading and adds a fifth, conscience, since every stone is lab-grown. Coming into this lab, the store had nine products across four collections (Engagement Rings, Sunlit Collection, Earrings, and Statement & Occasion), a working navigation menu, About and Contact pages, and shipping and return policies from earlier assignments. On paper that sounded ready for Google Merchant Center. This lab measured the distance between "looks ready" and "ready by Google's standards," and it turned out that distance is real.
+
+::: callout-note
+This is a practice store on a Shopify trial. Per the assignment instructions, I documented the connection attempt honestly and did not publish products, run ads, or misrepresent a practice store as an operating business.
+:::
+
+## Connection Attempt Evidence
+
+I attempted the connection through the Google & YouTube sales channel inside Shopify. The attempt got further than I expected: I successfully connected a Google account, created a real Merchant Center account, and passed the first store requirement check before the process stopped.
+
+::: panel-tabset
+### Installing the channel
+
+I installed the Google & YouTube sales channel from the Shopify App Store. The channel's overview page offers two paths, Merchant Center for product listings and Google Ads for paid campaigns. I chose the Merchant Center path, since the goal was product listing readiness, not advertising.
+
+![Google & YouTube sales channel overview in Shopify](images/gmc-01-channel.png)
+
+### Connecting Google and Merchant Center
+
+The onboarding flow connected my Google account and then created a Google Merchant Center account for the store, ID 5824461287, registered as The 5th C Diamond. Shopify handled the account creation automatically, which shows how much of the technical setup the integration does for a merchant.
+
+![Merchant Center account created and selected during onboarding](images/gmc-02-account.png)
+
+### Merchant Center connected, with a warning
+
+The Merchant Center connection completed, but immediately came back with a warning from Google: "Add your business address under business information in Merchant Center." A practice store has no real business address to add, which is my first hard stop, and for a real business it is a reminder that Google verifies the merchant as much as the products.
+
+![Merchant Center connected with a business address warning](images/gmc-03-merchant.png)
+
+### The store requirements check
+
+The next task was "Check your online store requirements," where, in Shopify's words, Google verifies essentials "to ensure a high level of trust and safety for customers." My store passed the first check, a valid payment method, and then failed three.
+
+![The store requirements check begins](images/gmc-04-setup.png)
+
+### Where the process stopped
+
+Three requirements came back unresolved: remove the online store password, add a refund policy and terms of service to the footer navigation menu, and confirm contact information on the online store. With those open, the requirements task cannot complete.
+
+![Three failed store requirements](images/gmc-05-requirements.png)
+
+The end state of my attempt: the Merchant Center account is connected but flagged for a missing business address, the requirements check is unresolved, and the Complete setup button stays disabled.
+
+![Final state: Complete setup unavailable](images/gmc-06-barrier.png)
+:::
+
+I also deliberately skipped the Google Ads account connection when the flow offered it, since running ads was out of scope for this lab. The setup treats Ads as optional, which confirms that free product listings through Merchant Center are a separate, lower-commitment channel than paid Shopping campaigns.
+
+## Product Sync and Listing Status
+
+I was not able to reach a product sync or product listing screen. The Google & YouTube channel gates product syncing behind the store requirements check, and my store could not pass it, so the Complete setup button never became available and no products were sent to Google. In other words, my nine products were never evaluated individually, because the store itself failed evaluation first.
+
+That ordering is itself the finding: Google's process checks merchant trustworthiness before it looks at a single product. Even if my product data were flawless, with strong titles, descriptions, real photography, and accurate prices, none of it would matter until the store-level requirements pass. Had the sync proceeded, I would also expect product-level warnings, most likely for missing GTIN barcodes (my jewelry is positioned as custom pieces without manufacturer identifiers) and for the two products currently at zero inventory.
+
+## Setup Barriers and Warnings
+
+My attempt surfaced five concrete barriers, four of them named explicitly on screen:
+
+1.  **Password-protected storefront.** The requirements check failed on "Remove your online store password." My store is on a Shopify trial, which locks the storefront behind a password until a paid plan is selected. Google cannot crawl a password-protected site, so it cannot verify products, policies, or landing pages. This is the deepest barrier because fixing it is not a settings change, it is a paid business decision.
+
+2.  **Refund policy and terms of service not in the footer menu.** I wrote shipping and return policies in an earlier assignment, but the requirements check failed on "Add the refund policy and terms of service to your footer navigation menu." Google does not just want the policies to exist somewhere in the admin, it wants them linked where customers can find them. Having content is not the same as surfacing it.
+
+3.  **Contact information not confirmed.** The third failed requirement asked me to confirm contact information on the online store. My Contact page exists, but the check requires explicit confirmation that the information customers need is present and visible.
+
+4.  **Missing business address in Merchant Center.** Google flagged the Merchant Center account itself: "Add your business address under business information." A practice store has no legitimate business address, and inventing one would cross into misrepresenting a fake store as a real business, which the assignment (and Google policy) prohibits. For a real retailer this is trivial; for a practice store it is a wall.
+
+5.  **Trial domain.** Underlying everything, the store lives at a myshopify.com trial URL. Even after the password issue, a real launch would need a purchased custom domain, verified and claimed in Merchant Center, both for Google's checks and for customer trust.
+
+The pattern across all five: none of them are product data problems. Every barrier I hit was about store credibility and business legitimacy.
+
+## Fixes Needed Before a Real Launch
+
+In priority order, a real business running this store would need to:
+
+1.  Select a paid Shopify plan and remove the storefront password, since Google can verify nothing it cannot crawl
+2.  Add the refund policy and terms of service pages to the footer navigation menu, a five-minute fix in Online Store, Navigation, that my attempt showed is mandatory rather than optional polish
+3.  Confirm complete contact information is visible on the storefront, not just an email form but identifiable business contact details
+4.  Enter a real business address in Merchant Center's business information settings
+5.  Purchase and connect a custom domain, then verify and claim it in Merchant Center
+6.  Prepare the product feed for the checks that would come next: mark custom jewelry as having no GTIN, assign Google product categories, and fix the two zero-inventory products so the feed never advertises what cannot be bought
+7.  Only then complete setup and request review, expecting at least one round of feedback before approval
+
+## CPP Farm Store Reflection
+
+Based on this experience, CPP Farm Store should treat Google Merchant Center readiness as a checklist that starts long before anyone touches an ad budget. The most important lesson from my attempt is that Google evaluates the store before it evaluates a single product. My setup never reached product sync because the store itself failed the trust checks: a password-protected site, policies that existed but were not linked in the footer, unconfirmed contact information, and a missing business address. Before connecting Shopify to Merchant Center, the Farm Store needs a live, publicly crawlable website on its own custom domain, with contact information, store hours, a refund policy, and terms of service visible in the site navigation, not just written somewhere internally. Every one of those is something Google's systems check when deciding whether a merchant deserves to be listed.
+
+Second, the product catalog needs to be Merchant Center grade, not just website grade. Every product should carry a clear title written the way customers search, a complete description, an accurate price, real photography, a product category, and honest availability. Farm products add a wrinkle my jewelry store does not have: inventory changes with the seasons and sometimes daily. The Farm Store should only sync products it can reliably keep in stock, and use Shopify's inventory tracking so that when strawberries sell out, the Google listing updates automatically instead of advertising something that is gone. Fresh produce may honestly be a poor fit for Shopping listings entirely, while shelf-stable products like honey, preserves, and the gift baskets are strong candidates because their availability, pricing, and shipping are stable.
+
+Third, the Farm Store should settle its business identity questions before setup, because Merchant Center asks for them directly. My attempt stalled partly on a business address I could not legitimately provide. The Farm Store operates under a university, so decisions about the official business name, address, domain ownership, and who controls the Google accounts need to be made with the university before the first setup screen. The real preparation is not technical. It is having the business decisions made so the technical steps have answers.
+
+## Appendix
+
+GitHub Repository: *\[insert GitHub repo URL here\]*
+
+GitHub Pages (Published Report): *\[insert GitHub Pages URL here\]*
